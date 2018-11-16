@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    <link rel="icon" href="img/portfolio.png" type="image/png"> -->
+    <title>COOL AS IRENE</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <link href="js/common.js" rel="javascript" type="text/javascript">
+    <style>
+        /* reset */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video, button, input{
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        html {width:100%;height:100%;display:block;font-size:62.5%;line-height:normal}
+        ol, ul {list-style: none}
+        body{position:relative;height:100%;min-height:100%;font-size:1.4rem;line-height:1.1;color:#333}
+        html, body,input,textarea,select,button,table{font-family:'NotoSansKR', sans-serif;font-weight:400;word-break:break-all}
+        a{text-decoration:none}
+
+        /*.load_hidden{visibility:hidden}*/
+        #wrap{position:relative;width:100%;height:100%}
+        body{background-color:#2f2f2f/*#f1eada*//*background:url("img/bg_marble.jpg") repeat-y center*/}
+        /* header{text-align:center}
+        header .img_area{overflow:hidden;position:relative;display:block;width:20rem;height:20rem;margin:5rem auto 2rem;border:.1rem solid #333;border-radius:100%}
+        header .img_area:after{content:'';position:absolute;top:.2rem;left:.2rem;right:.2rem;bottom:.2rem;border:.1rem solid #333;border-radius:100%}*/
+        header{max-width:120rem;margin:13rem auto 0}
+        header h1{position:relative;padding:0 1rem;font-size:6.2rem;color:#fff;text-align:right}
+        header h1:before{content:'';position:absolute;top:0;left:0;width:26rem;height:.2rem;background-color:#fff}
+        #contents{max-width:120rem;margin:0 auto;padding-bottom:12rem}
+        footer{width:100%;padding:1.5rem;color:#fff;text-align:center;box-sizing:border-box}
+        /*.sns_list .ico_mail img{width:3.2rem;height:3.2rem}*/
+        
+        .proj_list{margin:25rem auto 0}
+        .proj_list>ul{display:flex;flex-wrap:wrap}
+        .proj_list .proj{overflow:hidden;flex:50rem;height:32rem;margin:0 1rem 3rem;/*border:.1rem solid #333;border-radius:.5rem;*/box-shadow: 5px 4px 20px 4px rgba(0,0,0,0.55)}
+        /*.proj_list .proj.flex30{flex:30rem}
+        .proj_list .proj.flex40{flex:40rem}
+        .proj_list .proj.flex50{flex:50rem}*/
+        .proj_list .proj a{position:relative;display:block;width:100%;height:100%;background-color:#fff}
+        /*.proj_list .proj a:after{content:'';position:absolute;top:.2rem;left:.2rem;right:.2rem;bottom:.2rem;border:.1rem solid #333;border-radius:.5rem}*/
+        .proj_list .proj a:hover{box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
+        .proj_list .proj a:hover .overlay.bottom{height:100%}
+        .proj_list .proj a:hover .overlay.top{height:100%}
+        .proj_list .proj a:hover .overlay.right{width:100%}
+        .proj_list .proj a:hover .overlay.left{width:100%}
+        .proj_list .proj a:hover .tit{font-weight:600}
+        .proj_list .proj .overlay{position:absolute;width:30%;padding:1.2rem 1rem;box-sizing:border-box;background-color:#333;transition: .8s ease}
+        /*.proj_list .proj .overlay.bottom{bottom:0;left:0;right:0;height:4rem}
+        .proj_list .proj .overlay.top{top:0;left:0;right:0;height:4rem}*/
+        .proj_list .proj .overlay.right{bottom:0;top:0;right:0}
+        .proj_list .proj .overlay.left{bottom:0;top:0;left:0}
+        .proj_list .proj .tit{font-size:1.5rem;color:#fff;text-align:center;letter-spacing:-.05rem}
+        .proj_list .proj .ulist{margin-top:1.3rem}
+        .proj_list .proj .ulist li{position:relative;padding-left:1rem;font-size:1.4rem;color:#666}
+        .proj_list .proj .ulist li:before{content:'';position:absolute;top:.7rem;left:0;width:.4rem;height:.1rem;background-color:#666}
+        .proj_list .proj .ulist li+li{margin-top:.3rem}
+        
+        .color01{color:#cebcae}
+        .color02{color:#eeeadf}
+        .color03{color:#b7d1ce}
+        .color04{color:#c0d6d4}
+        .color05{color:#8f8f8f}
+        .color06{color:#333}
+        .color07{color:#404040}
+        
+        .proj_list .proj.kbinsurance .overlay{background-color:#b7d1ce}
+        .proj_list .proj.icbnear .overlay{background-color:#8f8f8f}
+        .proj_list .proj.samsungcard .overlay{background-color:#eeeadf}
+        .proj_list .proj.kbgoodjob .overlay{background-color:#333}
+        .proj_list .proj.kbliiv .overlay{background-color:#cebcae}
+        .proj_list .proj.woorisoribank .overlay{background-color:#eeeadf}
+        .proj_list .proj.fsb .overlay{background-color:#c0d6d4}
+        .proj_list .proj.cloudlink .overlay{background-color:#404040}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <!--<span class="img_area"></span>-->
+            <h1>WELCOME</h1>
+            <!--<ul class="sns_list">
+                <li>
+                    <a class="ico_mail" href="mailto:yonseng1218@gmail.com?Subject=Hello" target="_parent"><img alt="이메일" src="img/ico_mail.png"></a>
+                </li>
+            </ul>-->
+        </header>
+        <div id="contents">
+            <div class="proj_list">
+                <ul>
+                    <li class="proj kbinsurance">
+                        <a href="#">                            
+                            <span class="overlay right">
+                                <h3 class="tit">KB손해보험</h3>
+                                <ul class="ulist">
+                                    <li>aaaa</li>
+                                    <li>bbbbbbbb</li>
+                                </ul>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="proj icbnear">
+                        <a href="#">     
+                            <span class="overlay right">                       
+                                <h3 class="tit">ICB NEAR</h3>
+                                <span></span>
+                            </span>                 
+                        </a>
+                    </li>
+                    <li class="proj samsungcard">
+                        <a href="https://www.samsungcard.com/personal/card/digital/UHPPCA0510M0.jsp?bgdAlncPdC=AAP1483&echo_key=03-1181-5-513417&site=QCGWPC&cmpid=QCGWPC&gclid=EAIaIQobChMIj9izqbDO3gIVDgaRCh2jZABPEAAYASAAEgI2gfD_BwE&_ga=2.218427930.2074954315.1542009312-502681508.1542009312&_gac=1.253372093.1542009312.EAIaIQobChMIj9izqbDO3gIVDgaRCh2jZABPEAAYASAAEgI2gfD_BwE#apply_step01" target="_blank">
+                            <span class="overlay right">                       
+                                <h3 class="tit">삼성카드</h3>
+                                <span></span>         
+                            </span>                   
+                        </a>
+                    </li>
+                    <li class="proj kbgoodjob">
+                        <a href="https://kbgoodjob.kbstar.com/" target="_blank">     
+                            <span class="overlay right">                       
+                                <h3 class="tit">KB Good Job</h3>
+                                <span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="proj kbliiv">
+                        <a href="https://play.google.com/store/apps/details?id=com.kbstar.liivbank&hl=ko" target="_blank">                            
+                            <span class="overlay right">
+                                <h3 class="tit">KB Liiv</h3>
+                                <span></span>
+                           </span>
+                        </a>
+                    </li>
+                    <li class="proj woorisoribank">
+                        <a href="#">                            
+                            <span class="overlay right">
+                                <h3 class="tit">우리은행 M뱅킹 구축</h3>
+                                <span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="proj fsb">
+                        <a href="#">
+                            <span class="overlay right">
+                                <h3 class="tit">저축은행중앙회</h3>
+                                <span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="proj cloudlink">
+                        <a href="https://www.cloudlink.co.kr/" target="_blank">
+                            <span class="overlay right">                     
+                                <h3 class="tit">뱅크웨어글로벌</h3>
+                                <span></span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            <p>© YEONSEUNG CHO 2018. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        ScrollReveal().reveal('.proj', {interval:200});
+        $(".proj").hover(function(){
+            $(this).addClass('actvie');
+        }, function(){
+            $(this).removeClass('actvie');
+        });
+    </script>
+</body>
+</html>
