@@ -1,192 +1,269 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--    <link rel="icon" href="img/portfolio.png" type="image/png"> -->
-    <title>COOL AS IRENE</title>
-    <script src="js/jquery.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4"></script>
-    <link href="js/common.js" rel="javascript" type="text/javascript">
-    <style>
-        /* reset */
-        html, body, div, span, applet, object, iframe,
-        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-        a, abbr, acronym, address, big, cite, code,
-        del, dfn, em, img, ins, kbd, q, s, samp,
-        small, strike, strong, sub, sup, tt, var,
-        b, u, i, center,
-        dl, dt, dd, ol, ul, li,
-        fieldset, form, label, legend,
-        table, caption, tbody, tfoot, thead, tr, th, td,
-        article, aside, canvas, details, embed,
-        figure, figcaption, footer, header, hgroup,
-        menu, nav, output, ruby, section, summary,
-        time, mark, audio, video, button, input{
-            margin: 0;
-            padding: 0;
-            border: 0;
-        }
-        html {width:100%;height:100%;display:block;font-size:62.5%;line-height:normal}
-        ol, ul {list-style: none}
-        body{position:relative;height:100%;min-height:100%;font-size:1.4rem;line-height:1.1;color:#333}
-        html, body,input,textarea,select,button,table{font-family:'NotoSansKR', sans-serif;font-weight:400;word-break:break-all}
-        a{text-decoration:none}
-
-        /*.load_hidden{visibility:hidden}*/
-        #wrap{position:relative;width:100%;height:100%}
-        body{background-color:#2f2f2f/*#f1eada*//*background:url("img/bg_marble.jpg") repeat-y center*/}
-        /* header{text-align:center}
-        header .img_area{overflow:hidden;position:relative;display:block;width:20rem;height:20rem;margin:5rem auto 2rem;border:.1rem solid #333;border-radius:100%}
-        header .img_area:after{content:'';position:absolute;top:.2rem;left:.2rem;right:.2rem;bottom:.2rem;border:.1rem solid #333;border-radius:100%}*/
-        header{max-width:120rem;margin:13rem auto 0}
-        header h1{position:relative;padding:0 1rem;font-size:6.2rem;color:#fff;text-align:right}
-        header h1:before{content:'';position:absolute;top:0;left:0;width:26rem;height:.2rem;background-color:#fff}
-        #contents{max-width:120rem;margin:0 auto;padding-bottom:12rem}
-        footer{width:100%;padding:1.5rem;color:#fff;text-align:center;box-sizing:border-box}
-        /*.sns_list .ico_mail img{width:3.2rem;height:3.2rem}*/
-        
-        .proj_list{margin:25rem auto 0}
-        .proj_list>ul{display:flex;flex-wrap:wrap}
-        .proj_list .proj{overflow:hidden;flex:50rem;height:32rem;margin:0 1rem 3rem;/*border:.1rem solid #333;border-radius:.5rem;*/box-shadow: 5px 4px 20px 4px rgba(0,0,0,0.55)}
-        /*.proj_list .proj.flex30{flex:30rem}
-        .proj_list .proj.flex40{flex:40rem}
-        .proj_list .proj.flex50{flex:50rem}*/
-        .proj_list .proj a{position:relative;display:block;width:100%;height:100%;background-color:#fff}
-        /*.proj_list .proj a:after{content:'';position:absolute;top:.2rem;left:.2rem;right:.2rem;bottom:.2rem;border:.1rem solid #333;border-radius:.5rem}*/
-        .proj_list .proj a:hover{box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);}
-        .proj_list .proj a:hover .overlay.bottom{height:100%}
-        .proj_list .proj a:hover .overlay.top{height:100%}
-        .proj_list .proj a:hover .overlay.right{width:100%}
-        .proj_list .proj a:hover .overlay.left{width:100%}
-        .proj_list .proj a:hover .tit{font-weight:600}
-        .proj_list .proj .overlay{position:absolute;width:30%;padding:1.2rem 1rem;box-sizing:border-box;background-color:#333;transition: .8s ease}
-        /*.proj_list .proj .overlay.bottom{bottom:0;left:0;right:0;height:4rem}
-        .proj_list .proj .overlay.top{top:0;left:0;right:0;height:4rem}*/
-        .proj_list .proj .overlay.right{bottom:0;top:0;right:0}
-        .proj_list .proj .overlay.left{bottom:0;top:0;left:0}
-        .proj_list .proj .tit{font-size:1.5rem;color:#fff;text-align:center;letter-spacing:-.05rem}
-        .proj_list .proj .ulist{margin-top:1.3rem}
-        .proj_list .proj .ulist li{position:relative;padding-left:1rem;font-size:1.4rem;color:#666}
-        .proj_list .proj .ulist li:before{content:'';position:absolute;top:.7rem;left:0;width:.4rem;height:.1rem;background-color:#666}
-        .proj_list .proj .ulist li+li{margin-top:.3rem}
-        
-        .color01{color:#cebcae}
-        .color02{color:#eeeadf}
-        .color03{color:#b7d1ce}
-        .color04{color:#c0d6d4}
-        .color05{color:#8f8f8f}
-        .color06{color:#333}
-        .color07{color:#404040}
-        
-        .proj_list .proj.kbinsurance .overlay{background-color:#b7d1ce}
-        .proj_list .proj.icbnear .overlay{background-color:#8f8f8f}
-        .proj_list .proj.samsungcard .overlay{background-color:#eeeadf}
-        .proj_list .proj.kbgoodjob .overlay{background-color:#333}
-        .proj_list .proj.kbliiv .overlay{background-color:#cebcae}
-        .proj_list .proj.woorisoribank .overlay{background-color:#eeeadf}
-        .proj_list .proj.fsb .overlay{background-color:#c0d6d4}
-        .proj_list .proj.cloudlink .overlay{background-color:#404040}
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="publisher" content="Cho Yeon Seung">
+<meta name="author" content="Cho Yeon Seung">
+<title>COOL AS IRENE</title>
+<link rel="stylesheet" href="css/common.css">
+<script src="js/libs/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-    <div id="wrap">
-        <header>
-            <!--<span class="img_area"></span>-->
-            <h1>WELCOME</h1>
-            <!--<ul class="sns_list">
-                <li>
-                    <a class="ico_mail" href="mailto:yonseng1218@gmail.com?Subject=Hello" target="_parent"><img alt="이메일" src="img/ico_mail.png"></a>
-                </li>
-            </ul>-->
-        </header>
-        <div id="contents">
-            <div class="proj_list">
-                <ul>
-                    <li class="proj kbinsurance">
-                        <a href="#">                            
-                            <span class="overlay right">
-                                <h3 class="tit">KB손해보험</h3>
-                                <ul class="ulist">
-                                    <li>aaaa</li>
-                                    <li>bbbbbbbb</li>
-                                </ul>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="proj icbnear">
-                        <a href="#">     
-                            <span class="overlay right">                       
-                                <h3 class="tit">ICB NEAR</h3>
-                                <span></span>
-                            </span>                 
-                        </a>
-                    </li>
-                    <li class="proj samsungcard">
-                        <a href="https://www.samsungcard.com/personal/card/digital/UHPPCA0510M0.jsp?bgdAlncPdC=AAP1483&echo_key=03-1181-5-513417&site=QCGWPC&cmpid=QCGWPC&gclid=EAIaIQobChMIj9izqbDO3gIVDgaRCh2jZABPEAAYASAAEgI2gfD_BwE&_ga=2.218427930.2074954315.1542009312-502681508.1542009312&_gac=1.253372093.1542009312.EAIaIQobChMIj9izqbDO3gIVDgaRCh2jZABPEAAYASAAEgI2gfD_BwE#apply_step01" target="_blank">
-                            <span class="overlay right">                       
-                                <h3 class="tit">삼성카드</h3>
-                                <span></span>         
-                            </span>                   
-                        </a>
-                    </li>
-                    <li class="proj kbgoodjob">
-                        <a href="https://kbgoodjob.kbstar.com/" target="_blank">     
-                            <span class="overlay right">                       
-                                <h3 class="tit">KB Good Job</h3>
-                                <span></span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="proj kbliiv">
-                        <a href="https://play.google.com/store/apps/details?id=com.kbstar.liivbank&hl=ko" target="_blank">                            
-                            <span class="overlay right">
-                                <h3 class="tit">KB Liiv</h3>
-                                <span></span>
-                           </span>
-                        </a>
-                    </li>
-                    <li class="proj woorisoribank">
-                        <a href="#">                            
-                            <span class="overlay right">
-                                <h3 class="tit">우리은행 M뱅킹 구축</h3>
-                                <span></span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="proj fsb">
-                        <a href="#">
-                            <span class="overlay right">
-                                <h3 class="tit">저축은행중앙회</h3>
-                                <span></span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="proj cloudlink">
-                        <a href="https://www.cloudlink.co.kr/" target="_blank">
-                            <span class="overlay right">                     
-                                <h3 class="tit">뱅크웨어글로벌</h3>
-                                <span></span>
-                            </span>
-                        </a>
-                    </li>
+<div id="wrap">
+    <div id="skip"><a href="#content">본문 바로가기</a></div>
+    <!-- header -->
+	<header>
+		<div class="inr">
+			<h1>CHO YEON SEUNG, 조연승</h1>
+			<nav>
+                <ul class="gnb">
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#project">PROJECT</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
-            </div>
-        </div>
-        <footer>
-            <p>© YEONSEUNG CHO 2018. All rights reserved.</p>
-        </footer>
+            </nav>
+		</div>		
+	</header>
+	<!-- //header -->
+	<!-- container -->
+	<div id="container">            
+        <!-- content -->
+        <div id="content" class="content">
+			<!-- about -->
+			<section id="about" class="cont about">
+				<div class="inr">
+					<h2>ABOUT</h2>
+					<ul class="about_info">
+						<li>조연승</li>
+						<li>1991.12.18</li>
+						<li>Seoul</li>
+					</ul>
+					<ul class="dot_lst">
+						<li><span class="period">2016.09 - 현재 &#40;2년 6개월&#41;</span>유플리트㈜</li>
+					</ul>
+				</div>
+			</section>
+            <!-- //about -->           
+			<!-- project -->
+			<section id="project" class="cont project">
+				<div class="inr">
+					<h2>PROJECT</h2>
+					<ul class="project_lst">
+						<!-- 가계여신 -->
+						<li>							
+							<strong class="project_tit">KB가계여신<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>KB국민은행</li>
+								<li class="name"><span class="blind">프로젝트명</span>KB가계여신 디지털화 구축</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2018.11 - 2018.12</li>
+								<li class="link"><a href="#" title="새창열림" target="_blank">PDF</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="web">WEB</span></li>
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>								
+								<li><span class="javascript">JAVASCRIPT</span></li>
+								<li><span class="accesibility">ACCESIBILITY</span></li>
+							</ul>
+						</li>
+						<!-- //가계여신 -->
+						<!-- kb손해보험 -->
+						<li>
+							<strong class="project_tit">KB손해보험<span class="category">Insurance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>KB손해보험</li>
+								<li class="name"><span class="blind">프로젝트명</span>KB손해보험 대고객 대표앱 구축</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2018.08 - 2018.11</li>								
+								<li class="link"><a href="#" title="새창열림" target="_blank">PDF</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+								<li><span class="javascript">JAVASCRIPT</span></li>
+							</ul>
+						</li>
+						<!-- //kb손해보험 -->
+						<!-- icb니어 -->
+						<li>
+							<strong class="project_tit">ICB니어<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>ICB니어</li>
+								<li class="name"><span class="blind">프로젝트명</span>ICB니어서비스 구축</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2018.06 - 2018.07</li>
+								<li class="link"><a href="#" title="새창열림" target="_blank">PDF</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+								<li><span class="javascript">JAVASCRIPT</span></li>
+							</ul>
+						</li>
+						<!-- //icb니어 -->
+						<!-- 삼성카드 -->
+						<li>
+							<strong class="project_tit">삼성카드<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>삼성카드</li>
+								<li class="name"><span class="blind">프로젝트명</span>삼성카드 신청 프로세스 개선</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2018.03 - 2018.06</li>
+								<li class="link"><a href="https://www.samsungcard.com/personal/card/digital/UHPPCA0510M0.jsp?click=showcase_card_apply&bgdAlncPdC=AAP1483#apply_step01" title="새창열림" target="_blank">www.samsungcard.com</a></li>							
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="web">WEB</span></li>
+								<li><span class="responsive">RESPONSIVE WEB</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+								<li><span class="javascript">JAVASCRIPT</span></li>
+							</ul>
+						</li>
+						<!-- //삼성카드 -->
+						<!-- kb굿잡 -->
+						<li>
+							<strong class="project_tit">KB굿잡<span class="category">Recruit</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>KB국민은행</li>
+								<li class="name"><span class="blind">프로젝트명</span>KB굿잡 사이트 리뉴얼</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2017.09 - 2018.01</li>
+								<li class="link"><a href="https://kbgoodjob.kbstar.com" title="새창열림" target="_blank">kbgoodjob.kbstar.com</a></li>								
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="web">WEB</span></li>
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="tablet">TABLET</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+								<li><span class="javascript">JAVASCRIPT</span></li>
+								<li><span class="accesibility">ACCESIBILITY</span></li>
+							</ul>
+						</li>
+						<!-- //kb굿잡 -->
+						<!-- liiv2.0 -->
+						<li>
+							<strong class="project_tit">KB Liiv 2.0<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>KB국민은행</li>
+								<li class="name"><span class="blind">프로젝트명</span>KB국민은행 스마트금융대응 Liiv 개편</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2017.04 - 2017.08</li>
+								<li class="link"><a href="#" title="새창열림" target="_blank">PDF</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+								<li><span class="javascript">JAVASCRIPT</span></li>
+							</ul>
+						</li>
+						<!-- //liiv2.0 -->
+						<!-- 우리은행sori -->
+						<li>
+							<strong class="project_tit">우리은행 AI 뱅킹 SORi<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>우리은행</li>
+								<li class="name"><span class="blind">프로젝트명</span>우리은행 M뱅킹 구축</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2017.02 - 2017.03</li>
+								<li class="link"><a href="#" title="새창열림" target="_blank">PDF</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+							</ul>
+						</li>
+						<!-- //우리은행sori -->
+						<!-- 저축은행중앙회 -->
+						<li>
+							<strong class="project_tit">저축은행중앙회<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>캡소프트</li>
+								<li class="name"><span class="blind">프로젝트명</span>전자약정 ASP 서비스 시스템 구축</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2017.01 - 2017.02</li>
+								<li class="link"><a href="#" title="새창열림" target="_blank">PDF</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="mobile">MOBILE</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+							</ul>
+						</li>
+						<!-- //저축은행중앙회 -->
+						<!-- 클라우드링크 -->
+						<li>
+							<strong class="project_tit">클라우드링크<span class="category">Finance</span></strong>
+							<ul class="project_info">
+								<li class="client"><span class="blind">클라이언트</span>뱅크웨어글로벌</li>
+								<li class="name"><span class="blind">프로젝트명</span>클라우드링크 홈페이지 리뉴얼</li>
+								<li class="position"><span class="blind">역할</span>Publishing, PA</li>
+								<li class="date"><span class="blind">수행기간</span>2016.11 - 2016.12</li>
+								<li class="link"><a href="https://www.cloudlink.co.kr/" title="새창열림" target="_blank">www.cloudlink.co.kr</a></li>
+							</ul>
+							<ul class="skill_lst">
+								<li><span class="web">WEB</span></li>
+								<li><span class="html5">HTML5</span></li>
+								<li><span class="css3">CSS3</span></li>
+							</ul>
+						</li>
+						<!-- //클라우드링크 -->
+					</ul>					   
+				</div>
+            </section>
+            <!-- //project -->
+            <!-- contact -->
+            <section id="contact" class="cont">
+            	<div class="inr">
+            		<h2>CONTACT</h2>
+            		<ul class="dot_lst">
+            			<li>Mail : <a href="mailto:coolasirene@gmail.com">coolasirene@gmail.com</a></li>
+            			<li>GitHub : <a href="https://coolasirene.github.io/">coolasirene.github.io</a></li>
+            		</ul>					
+            	</div>
+			</section>
+            <!-- contact -->                
+        </div>            
+        <!-- //content -->
     </div>
-    <script>
-        ScrollReveal().reveal('.proj', {interval:200});
-        $(".proj").hover(function(){
-            $(this).addClass('actvie');
-        }, function(){
-            $(this).removeClass('actvie');
-        });
-    </script>
+    <!-- //container -->  
+    <!-- footer -->
+    <footer>
+        <div class="inr">
+			<p class="copyright">&copy; 2019 Cho Yeon Seung. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- //footer -->
+</div>
+
+<script>
+var $navOffset = $('.gnb').offset().top;
+	
+$(window).scroll(function(){
+	var $nav = $('.gnb'),
+ 		$scroll = $(window).scrollTop();
+
+ 	($scroll >= $navOffset)?$nav.addClass('fixed'):$nav.removeClass('fixed');
+});
+
+function clickFunc(e){
+	var _this = $(e.target);
+	var scrollPosition = $(_this.attr('href')).offset().top;
+
+	$('html, body').stop().animate({
+		scrollTop : scrollPosition
+	}, 500);
+
+	_this.parents('li').addClass('selected').siblings().removeClass();
+}
+clickFunc();
+</script>
 </body>
 </html>
