@@ -28,7 +28,7 @@
 	<!-- container -->
 	<div id="container">            
         <!-- content -->
-        <div id="content" class="content">
+        <main id="content" class="content">
 			<!-- about -->
 			<section id="about" class="cont about">
 				<div class="inr">
@@ -39,7 +39,7 @@
 						<li>Seoul</li>
 					</ul>
 					<ul class="dot_lst">
-						<li><span class="period">2016.09 - 현재 &#40;2년 6개월&#41;</span>유플리트㈜</li>
+						<li><span class="period">2016.09 - 현재 &#40;2년 7개월&#41;</span>유플리트㈜</li>
 					</ul>
 				</div>
 			</section>
@@ -175,6 +175,7 @@
 								<li><span class="html5">HTML5</span></li>
 								<li><span class="css3">CSS3</span></li>
 								<li><span class="javascript">JAVASCRIPT</span></li>
+								<li><span class="award">2017 APP Award Korea 대상</span></li>
 							</ul>
 						</li>
 						<!-- //liiv2.0 -->
@@ -244,7 +245,7 @@
             	</div>
 			</section>
             <!-- contact -->                
-        </div>            
+        </main>            
         <!-- //content -->
     </div>
     <!-- //container -->  
@@ -267,6 +268,14 @@ $(window).scroll(function(){
 
  	($scroll >= $navOffset)?$nav.addClass('fixed'):$nav.removeClass('fixed');
 });
+	
+$('.gnb a').on('click', function(){
+	var scrollPosition = $($(this).attr('href')).offset().top;
+	
+	$('html, body').stop().animate({
+		scrollTop: scrollPosition
+	}, 700);
+})
 </script>
 </body>
 </html>
